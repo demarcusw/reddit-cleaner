@@ -1,23 +1,27 @@
 import logging
 
+
 class MyLogger:
-    def __init__(self, logger_name):
+    def __init__(self, logger_name: str, log_location: str = None):
         self.logger = logging.getLogger(logger_name)
         self.logger.setLevel(logging.DEBUG)
 
         # create a file handler
-        handler = logging.FileHandler('mylog.log')
-        handler.setLevel(logging.DEBUG)
-        formatter = logging.Formatter(
-            '[%(asctime)s] %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
-        handler.setFormatter(formatter)
-        self.logger.addHandler(handler)
+        if log_location:
+            handler = logging.FileHandler(log_location)
+            handler.setLevel(logging.DEBUG)
+            formatter = logging.Formatter(
+                "[%(asctime)s] %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S"
+            )
+            handler.setFormatter(formatter)
+            self.logger.addHandler(handler)
 
         # create a stream handler for stdout as well
         stream_handler = logging.StreamHandler()
         stream_handler.setLevel(logging.DEBUG)
         stream_formatter = logging.Formatter(
-            '[%(asctime)s] %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+            "[%(asctime)s] %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S"
+        )
         stream_handler.setFormatter(stream_formatter)
         self.logger.addHandler(stream_handler)
 
@@ -30,7 +34,7 @@ class MyLogger:
             logging.INFO: self.logger.info,
             logging.WARNING: self.logger.warning,
             logging.ERROR: self.logger.error,
-            logging.CRITICAL: self.logger.critical
+            logging.CRITICAL: self.logger.critical,
         }
 
         # call our specific logger level function
