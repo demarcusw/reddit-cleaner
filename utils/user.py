@@ -2,8 +2,8 @@ import praw
 import os
 import logging
 import lorem
-import random
 
+from random import randint
 from . import logger
 from .constants import *
 
@@ -42,9 +42,9 @@ class MyUser:
 
         :return: Lorem Ipsum string of variable length/structure
         """
-        sentence_count = random.randint(1, 7)
-        comma_count = random.randint(0, 5)
-        word_rang = random.randint(4, 11)
+        sentence_count = randint(1, 7)
+        comma_count = randint(0, 5)
+        word_rang = randint(4, 11)
 
         return lorem.get_sentence(
             count=sentence_count, comma=comma_count, word_range=word_rang, sep=" "
@@ -70,6 +70,7 @@ class MyUser:
             for comment in self.me.comments.new(limit=None):
                 post_title = comment.submission.title
                 subrdt = comment.subreddit.display_name
+                # Overwrite if flag set
                 if self.overwrite:
                     new_body = self._generate_junk()
                     self.logger.log(f"Overwriting comment w/ {new_body}")
