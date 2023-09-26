@@ -1,4 +1,4 @@
-# reddit-cleaner
+# reddit-cleaner 🧹
 
 Bot to auto clean Reddit history. Runs on a cronjob
 
