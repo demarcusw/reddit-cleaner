@@ -1,0 +1,5 @@
+VERSION = 0.1
+AUTHOR = ""
+APP_NAME = "Chatter"
+PLATFORM = "linux"
+USER_AGENT = f"{PLATFORM}:{APP_NAME}:v{VERSION} (by u/{AUTHOR})"
