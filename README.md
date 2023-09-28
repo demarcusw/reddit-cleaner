@@ -4,7 +4,7 @@ Bot to auto clean Reddit history. Runs on a cronjob
 
 ## Description
 
-I created this to automatically maintain good data hygeine w/r/t to my reddit account(s). Feel free to use it and customize it. I suggest running on a cronjob in the background.
+A tool I use to automatically maintain good data hygeine w/r/t to my reddit account(s). Feel free to use it and customize it. I suggest running on a cronjob in the background.
 
 ## Usage
 
