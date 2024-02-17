@@ -14,6 +14,10 @@ import logging
 
 from constants import *
 
+VERSION = 0.1
+APP_NAME = "Cleaner"
+PLATFORM = "linux"
+
 
 class MyLogger:
     def __init__(self, logger_name):
@@ -45,12 +49,18 @@ class MyLogger:
 
 
 class MyUser:
+    
+    VERSION = 0.1
+    APP_NAME = "Cleaner"
+    PLATFORM = "linux"
+
     def __init__(self) -> None:
         self.id = os.environ.get('BI')
         self._secret = os.environ.get('BS')
         self._password = os.environ.get('P')
         self.username = os.environ.get('AUTHOR')
         self.logger = MyLogger('CleanerLogger')
+        self.ua = f"{PLATFORM}:{APP_NAME}:v{VERSION} (by u/{self.username})"
 
         if self.id and self._secret and self._password:
             pass
@@ -63,7 +73,7 @@ class MyUser:
             client_id=self.id,
             client_secret=self._secret,
             password=self._password,
-            user_agent=USER_AGENT,
+            user_agent=self.ua,
             username=self.username,
         )
         self.me = self._reddit.redditor(self.username)
