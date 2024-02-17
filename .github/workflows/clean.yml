@@ -17,7 +17,7 @@ jobs:
     - name: Run Cleaner
       run: python clean.py
       env:
-        BI: ${{BI}}
-        BS: ${{BS}}
-        P: ${{P}}
-        AUTHOR: ${{AUTHOR}}
+        BI: ${{secrets.BI}}
+        BS: ${{secrets.BS}}
+        P: ${{secrets.P}}
+        AUTHOR: ${{secrets.AUTHOR}}
