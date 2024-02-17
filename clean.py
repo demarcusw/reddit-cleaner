@@ -12,7 +12,6 @@ import praw
 import os
 import logging
 
-from constants import *
 
 VERSION = 0.1
 APP_NAME = "Cleaner"
